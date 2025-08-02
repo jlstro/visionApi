@@ -1,28 +1,11 @@
 import Vapor
 
-// func routes(_ app: Application) throws {
-//     app.get { req async in
-//         "It works!"
-//     }
-
-//     app.get("hello") { req async -> String in
-//         "Hello, world!"
-//     }
-// }
-
-
-
 func routes(_ app: Application) throws {
-    // Simple health check
+    // 1) Health endpoint
     app.get("health") { _ in
         return HTTPStatus.ok
     }
 
-    // Your existing OCR routes
-    try app.register(collection: OCRController())
-}
-
-
-func routes(_ app: Application) throws {
+    // 2) OCR endpoints
     try app.register(collection: OCRController())
 }
